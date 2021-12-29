@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+	.flex-containerr { display: flex; flex-wrap: wrap;align-content: center;justify-content: center;background-color: rgba(20,212,17,0.2);margin: 4em }
+	.flex-containerr div { padding:  12px;align-items: center;justify-content: center;display: flex;flex-direction:column; }
+    
+.chld:hover {
+  box-shadow: 2px 2px 2px 2px #57E964; border-radius: 50%
+}
+</style>
+<head>
+	<title>{{git_user.name|upper}} || Profle</title>
+
+</head>
+<body style="color:orange;">
+	<div style="position: relative;" >
+
+		<h1 style="text-align: center;width: 100vw">	
+				GitHub Users</h1>
+		<button style="width: 100px;height: 60px;border-radius: 5%;background:grey;display: flex;align-items: center;justify-content: center;margin: 20px;position: absolute;top: 1em;right: 9em">
+		<a style=" text-align: center;color: white;letter-spacing: 2px;text-decoration: none;font-weight: 700" 
+				href="{% url 'costum-api'%}">Costume API</a>
+	</button>
+	<button style="width: 100px;height: 60px;border-radius: 5%;background:grey;display: flex;align-items: center;justify-content: center;margin: 20px;float: right;position: absolute;top: 1em;right: 0px;padding: .1em">
+		<a style=" text-align: center;color: white;letter-spacing: 2px;text-decoration: none;font-weight: 700" 
+				href="{% url 'all_users_api'%}">Gett raw json API</a>
+	</button>
+		
+
+	</div>
+	<div style="width: 100px;height: 60px;border-radius: 50%;background:grey;display: flex;align-items: center;justify-content: center;margin: 20px;position: absolute;top: 0;">	
+		<a style=" text-align: center;color: white;letter-spacing: 2px;text-decoration: none;font-weight: 700" 
+		href="{% url 'home' %}">HOME</a>
+	</div>
+	<div>
+		<h1 style="text-align: center;">	
+		GitHub User - {{git_user.name|upper}}
+		</h1>	
+	</div>
+	<div>	
+
+	</div>
+
+<div class="flex-containerr">
+	<div class="chld">
+			<h5>{{git_user.name}}</h5>
+		<a href="{{git_user.html_url }}" target="_blank">
+
+		<img src="{{ git_user.avatar_url }}" alt="Girl in a jacket" width="120" height="120" style="border-radius: 50%;padding: 10px;margin: 0px;">
+		</a>
+	   	
+	</div>
+</div >
+        
+
+</body>
+</html>
+;

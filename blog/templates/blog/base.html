@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+	.flex-container {
+	  display: flex;
+	  flex-wrap: wrap;
+	  align-content: flex-start;
+	}
+	.flex-container div { padding:  12px;align-items: center;justify-content: center;display: flex;flex-direction:column; }
+    
+.chld:hover {
+  box-shadow: 2px 2px 2px 2px #57E964; border-radius: 50%
+}
+.atag{margin-top: 1.3em;visibility: hidden;font-weight: 700;color: orange;font-size: 2em}
+.chld:hover > .atag {visibility: visible; }
+</style>
+<head>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>GitHub Users - SODIQ-UMBA-TEST</title>
+
+</head>
+<body style="color:white;background-color: rgba(123,23,13,0.8);">
+<div style="position: relative;" >
+
+	<h1 style="text-align: center;width: 100vw">	
+			GitHub Users</h1>
+	<button style="width: 100px;height: 60px;border-radius: 5%;background:grey;display: flex;align-items: center;justify-content: center;margin: 20px;position: absolute;top: 1em;right: 9em">
+	<a style=" text-align: center;color: white;letter-spacing: 2px;text-decoration: none;font-weight: 700" 
+			href="{% url 'costum-api'%}">Costume API</a>
+</button>
+<button style="width: 100px;height: 60px;border-radius: 5%;background:grey;display: flex;align-items: center;justify-content: center;margin: 20px;float: right;position: absolute;top: 1em;right: 0px;padding: .1em">
+	<a style=" text-align: center;color: white;letter-spacing: 2px;text-decoration: none;font-weight: 700" 
+			href="{% url 'all_users_api'%}">Gett raw json API</a>
+</button>
+	
+
+</div>
+
+
+
+
+	{% if git_user.has_previous %}
+            <a href="{% url 'index' 1%}">&laquo; first</a>
+            <a href="{% url 'index' git_user.previous_page_number %}">previous</a>
+        {% endif %}
+        <span class="current">
+            Page {{ git_user.number }} of {{ git_user.paginator.num_pages }}.  
+        </span>
+
+	        {% if git_user.has_next %}
+	            <a href="{% url 'index' git_user.next_page_number %}">next</a>
+	            <a href="{% url 'index' git_user.paginator.num_pages  %}">last &raquo;</a>
+	        {% endif %}
+	
+
+<div class="flex-container">
+
+
+	{% for user in git_user %}
+	<div class="chld">
+			<h5>{{user.name|upper}}</h5>
+			
+			<a href="{{user.html_url }}" target="_blank">
+		<img src="{{ user.avatar_url }}" alt="Girl in a jacket" width="120" height="120" style="border-radius: 50%;padding: 10px;margin: 0px;background-color: rgba(20,212,17,0.2);">
+		</a>
+
+		<a class="atag"  href="{% url 'user_detail' user.id%}"  target="_blank"><i class="fa fa-user" aria-hidden="true"></i></a>
+	   	
+	</div>
+		
+	{% endfor %}
+</div >
+        
+
+</body>
+</html>
