@@ -4,7 +4,6 @@ import requests
 import json
 
 
-total=int(input("total"))
 
 d=requests.get('https://api.github.com/users').json()
 df = pd.DataFrame.from_records(d)

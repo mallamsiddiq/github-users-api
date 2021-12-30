@@ -20,7 +20,7 @@ def error_404(request, exception):
     data = {}
     return render(request,'blog/error.html', data)
 
-#@cache_page(60 * 10)
+@cache_page(60 * 10)
 def home(request):
   data = github_users.objects.all()
   pagination = request.GET.get('pagination')

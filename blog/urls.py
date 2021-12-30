@@ -13,7 +13,7 @@ schema_view = get_schema_view(
       title="Github Users' API ",
       default_version='v1',
       description="""<p><b>This is the customised view of the Github users' API, you can view and query with parameters on the bar shown below </b><p> 
-                        <p><i>Click the Get icon, scroll down to twick with the parameters, query with 'username', 'id'; 
+                        <p><i>Click the Get icon, scroll down to tweak with the parameters, query with 'username', 'id'; 
                         order by any of the parameters and you can also change the pagination and specify the page you noting however that the default 
                         pagination is '25'.</i><br><br><br><br><span> Play around with the raw json response at the base url above</span><p><br><br>""",
       terms_of_service="https://www.google.com/policies/terms/",
